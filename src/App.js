@@ -1,20 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
 
+import { useState } from 'react';
+import './App.css';
+import ToDoInput from './Components/ToDoInput';
+import ToDoList from './Components/ToDoList';
 function App() {
+  const [ListTodo,setListToDo]= useState([]);
+  const addList = (inputText) =>{
+    setListToDo([...ListTodo,inputText]);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-         <h1>NETFLIX & CHILL &  Try and get into TCS</h1>
-         <h2>Hey There </h2>
-          
-        
-      </header>
-    </div>
+    <>
+    <h1 className='p-2 m-2 text-xl align-content:center text-red-900 flex'>TO DO LIST</h1>
+    <ToDoInput  addList={addList}/>
+    <hr></hr>
+    <h1 className='text-2xl'>TODO</h1>
+    {ListTodo.map((listitem,i) =>{
+      return(
+        <ToDoList key={i} item={listitem} />
+      )
+    })}
+   
+    </>
+
   );
 }
 
