@@ -5,6 +5,7 @@ import ToDoInput from './Components/ToDoInput';
 import ToDoList from './Components/ToDoList';
 function App() {
   const [ListTodo,setListToDo]= useState([]);
+  
   const addList = (inputText) =>{
     setListToDo([...ListTodo,inputText]);
   }
@@ -14,8 +15,8 @@ function App() {
       setListToDo([...newList]);
   }
   return (
-    <>
-    <h1 className='px-[12rem] mx-[12rem] my-50px text-xl align-content:center text-red-900 flex font-bold '>TO DO LIST</h1>
+    <div className='p-7  m-7 shadow-lg bg-blue-50 rounded-lg' >
+    <h1 className='px-[12rem] mx-[12rem] mt-[8rem] text-xl  text-red-900 flex font-bold '>TO DO LIST</h1>
 
     <ToDoInput  addList={addList}/>
     
@@ -28,7 +29,7 @@ function App() {
       )
     })}
    
-    </>
+    </div>
 
   );
 }
